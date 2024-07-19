@@ -3,8 +3,19 @@
 {% load static %}
 {% block content %}
 <div id="wrapper">
+  {% if messages %}
+          <ul class="messages actions">
+            {% for message in messages %}
+              <li{% if message.tags %}
+                      class="{{ message.tags }}"
+                  {% endif %}>
+                    {{ message }}
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
       <!-- Intro -->
-      <section class="intro">
+      <section class="intro" id="intro">
         <header>
           <h1>OnlyFlans</h1>
           <p class="slogan">
@@ -17,7 +28,8 @@
           <ul class="actions">
             <li>
               <a href="#first" class="arrow scrolly">
-                <span class="label">Next</span></a>
+                <span class="label">Next</span>
+              </a>
             </li>
           </ul>
         </header>
@@ -41,7 +53,8 @@
         </header>
         <div class="content">
           <p>
-            <strong>OnlyFlans</strong> Descubre la delicia y variedad de nuestros flanes. Con una selección exquisita de sabores, nuestros flanes están diseñados para satisfacer todos los paladares.
+            <strong>OnlyFlans</strong> Descubre la delicia y variedad de nuestros flanes. Con una selección exquisita de
+            sabores, nuestros flanes están diseñados para satisfacer todos los paladares.
           </p>
           <span class="image main">
               {% for img in flanPage %}
@@ -54,7 +67,7 @@
       <!-- Section -->
       <section id="second">
         <header>
-          <h2>Feugiat consequat tempus ultrices</h2>
+          <h2>Nuestros Servicios</h2>
           <ul class="actions">
             <li>
               <a href="#third" class="arrow scrolly">
@@ -64,22 +77,18 @@
         </header>
         <div class="content">
           <p>
-            <strong>Etiam tristique libero</strong> eu nibh porttitor amet
-            fermentum. Nullam venenatis erat id vehicula ultrices sed ultricies
-            condimentum.
+            <strong>Servicios Destacados</strong>
           </p>
           <ul class="feature-icons">
-            <li class="icon solid fa-cookie-bite">Consequat tempus</li>
-            <li class="icon solid fa-cheese">Etiam adipiscing</li>
-            <li class="icon solid fa-signal">Libero nullam</li>
-            <li class="icon solid fa-cog">Blandit condimentum</li>
-            <li class="icon solid fa-map-marker-alt">Lorem ipsum dolor</li>
-            <li class="icon solid fa-code">Nibh amet venenatis</li>
+            <li class="icon solid fa-cookie-bite">Galletas Personalizadas</li>
+            <li class="icon solid fa-cheese">Tortas para toda ocación</li>
+            <li class="icon solid fa-signal">Té Exoticos</li>
+            <li class="icon solid fa-cog">Bebidas Importadas</li>
+            <li class="icon solid fa-map-marker-alt">Mejor Ubicación</li>
+            <li class="icon solid fa-code">Mejores Oferta</li>
           </ul>
           <p>
-            Vehicula ultrices sed ultricies condimentum. Magna sed etiam
-            consequat, et lorem adipiscing sed nulla. Volutpat nisl et tempus et
-            dolor libero, feugiat magna tempus, sed et lorem adipiscing.
+            Los clientes que nos han probado nos recomiendan y nos animan a seguir creciendo!
           </p>
         </div>
       </section>
@@ -87,12 +96,11 @@
       <!-- Section -->
       <section id="third">
         <header>
-          <h2>Ultrices erat magna sed condimentum</h2>
+          <h2>Productos Destacados</h2>
         </header>
         <div class="content">
           <p>
-            <strong>Integer mollis egestas</strong> nam maximus erat id euismod
-            egestas. Pellentesque sapien ac quam. Lorem ipsum dolor sit nullam.
+            <strong>Delicias de la casa</strong>
           </p>
 
           <!-- Section -->
@@ -105,6 +113,13 @@
                 consectetur amet do eiusmod tempor incididunt ipsum suspendisse
                 ultrices gravida.
               </p>
+              <ul class="actions">
+                <li>
+                  <a href="#fourth" class="arrow scrolly">
+                    <span class="label">Next</span>
+                  </a>
+                </li>
+              </ul>
             </header>
             <div class="content">
               <div class="gallery">
@@ -127,35 +142,35 @@
           </section>
 
           <!-- Section -->
-          <section>
+          <section id="fourth">
             <header>
-              <h3>Nisl consequat</h3>
-              <p>
-                Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin
-                aliquam sed facilisis ante interdum congue. Integer mollis, nisl
-                amet convallis, porttitor magna ullamcorper, amet mauris. Ut
-                magna finibus nisi nec lacinia ipsum maximus.
-              </p>
+              <h3>Testimoniales de Clientes</h3>
+              <p></p>
+              <ul class="actions">
+                <li>
+                  <a href="#fifth" class="arrow scrolly">
+                    <span class="label">Next</span>
+                  </a>
+                </li>
+              </ul>
             </header>
             <div class="content">
               <div class="gallery">
-                <a
-                  href="{% static 'img/gallery/fulls/05.jpg' %}"
-                  class="landscape"
-                  ><img src="{% static 'img/gallery/thumbs/05.jpg' %}" alt=""
-                /></a>
-                <a href="{% static 'img/gallery/fulls/06.jpg' %}"
-                  ><img src="{% static 'img/gallery/thumbs/06.jpg' %}" alt=""
-                /></a>
-                <a href="{% static 'img/gallery/fulls/07.jpg' %}"
-                  ><img src="{% static 'img/gallery/thumbs/07.jpg' %}" alt=""
-                /></a>
+                <a href="{% static 'img/gallery/fulls/05.jpg' %}" class="landscape">
+                  <img src="{% static 'img/gallery/thumbs/05.jpg' %}" alt=""/>
+                </a>
+                <a href="{% static 'img/gallery/fulls/06.jpg' %}">
+                  <img src="{% static 'img/gallery/thumbs/06.jpg' %}" alt=""/>
+                </a>
+                <a href="{% static 'img/gallery/fulls/07.jpg' %}">
+                  <img src="{% static 'img/gallery/thumbs/07.jpg' %}" alt=""/>
+                </a>
               </div>
             </div>
           </section>
 
           <!-- Section -->
-          <section>
+          <section id="fifth">
             <header>
               <h3>Lorem gravida</h3>
               <p>
@@ -164,24 +179,25 @@
                 lorem ullamcorper dolore. ac varius enim lorem ullamcorper
                 dolore. Proin aliquam facilisis.
               </p>
+              <ul class="actions">
+                <li>
+                  <a href="#sixth" class="arrow scrolly">
+                    <span class="label">Next</span>
+                  </a>
+                </li>
+              </ul>
             </header>
             <div class="content">
               <div class="gallery">
-                <a
-                  href="{% static 'img/gallery/fulls/08.jpg' %}"
-                  class="portrait"
-                  ><img src="{% static 'img/gallery/thumbs/08.jpg' %}" alt=""
-                /></a>
-                <a
-                  href="{% static 'img/gallery/fulls/09.jpg' %}"
-                  class="portrait"
-                  ><img src="{% static 'img/gallery/thumbs/09.jpg' %}" alt=""
-                /></a>
-                <a
-                  href="{% static 'img/gallery/fulls/10.jpg' %}"
-                  class="landscape"
-                  ><img src="{% static 'img/gallery/thumbs/10.jpg' %}" alt=""
-                /></a>
+                <a href="{% static 'img/gallery/fulls/08.jpg' %}" class="portrait">
+                  <img src="{% static 'img/gallery/thumbs/08.jpg' %}" alt=""/>
+                </a>
+                <a href="{% static 'img/gallery/fulls/09.jpg' %}" class="portrait">
+                  <img src="{% static 'img/gallery/thumbs/09.jpg' %}" alt=""/>
+                </a>
+                <a href="{% static 'img/gallery/fulls/10.jpg' %}" class="landscape">
+                  <img src="{% static 'img/gallery/thumbs/10.jpg' %}" alt=""/>
+                </a>
               </div>
             </div>
           </section>
@@ -189,7 +205,7 @@
       </section>
 
       <!-- Section -->
-      <section>
+      <section id="sixth">
         <header>
           <h2>Duis sed adpiscing veroeros amet</h2>
         </header>
@@ -200,8 +216,8 @@
             lorem ullamcorper dolore.
           </p>
           <ul class="actions">
-            <li><a href="#" class="button primary large">Get Started</a></li>
-            <li><a href="#" class="button large">Learn More</a></li>
+            <li><a href="#intro" class="button primary large scrolly">Ir al inicio</a></li>
+            <li><a href="#form_contact" class="button large scrolly">Más información</a></li>
           </ul>
         </div>
       </section>
@@ -209,15 +225,13 @@
       <!-- Elements -->
 
       <!-- Section -->
-      <section>
+      <section id="form_contact">
         <header>
           <h2>Get in touch</h2>
         </header>
         <div class="content">
           <p>
-            <strong>Auctor commodo</strong> interdum et malesuada fames ac ante
-            ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet
-            dolor mattis sagittis.
+            <strong>Contactanos</strong>
           </p>
           <form method="post" action="{% url 'form' %}">
               {% csrf_token %}
@@ -258,34 +272,34 @@
                 <h3>Elsewhere</h3>
                 <ul class="icons">
                   <li>
-                    <a href="#" class="icon brands fa-twitter"
-                      ><span class="label">Twitter</span></a
-                    >
+                    <a href="#" class="icon brands fa-twitter">
+                      <span class="label">Twitter</span>
+                    </a>
                   </li>
                   <li>
-                    <a href="#" class="icon brands fa-facebook-f"
-                      ><span class="label">Facebook</span></a
-                    >
+                    <a href="#" class="icon brands fa-facebook-f">
+                      <span class="label">Facebook</span>
+                    </a>
                   </li>
                   <li>
-                    <a href="#" class="icon brands fa-instagram"
-                      ><span class="label">Instagram</span></a
-                    >
+                    <a href="#" class="icon brands fa-instagram">
+                      <span class="label">Instagram</span>
+                    </a>
                   </li>
                   <li>
-                    <a href="#" class="icon brands fa-linkedin-in"
-                      ><span class="label">LinkedIn</span></a
-                    >
+                    <a href="#" class="icon brands fa-linkedin-in">
+                      <span class="label">LinkedIn</span>
+                    </a>
                   </li>
                   <li>
-                    <a href="#" class="icon brands fa-github"
-                      ><span class="label">GitHub</span></a
-                    >
+                    <a href="#" class="icon brands fa-github">
+                      <span class="label">GitHub</span>
+                    </a>
                   </li>
                   <li>
-                    <a href="#" class="icon brands fa-codepen"
-                      ><span class="label">Codepen</span></a
-                    >
+                    <a href="#" class="icon brands fa-codepen">
+                      <span class="label">Codepen</span>
+                    </a>
                   </li>
                 </ul>
               </li>
@@ -299,5 +313,4 @@
         <a href="https://html5up.net">HTML5 UP</a>.
       </div>
     </div>
-
 {% endblock %}

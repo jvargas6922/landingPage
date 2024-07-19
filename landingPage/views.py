@@ -1,5 +1,6 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, redirect
+#from django.http import HttpResponse
+from django.contrib import messages
 from flans.models import Flan,FlanPage,FormContact
 
 def index(request):
@@ -11,11 +12,13 @@ def index(request):
     }
     return render(request, 'index.html', context)
 
-def form(requets):
-    if requets.method == 'POST':
-        name = requets.POST.get('name')
-        email = requets.POST.get('email')
-        message = requets.POST.get('message')
-        formContact = FormContact(name=name,email=email,message=message)
+def form(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        message = request.POST.get('message')
+        formContact = FormContact(name=name, email=email, message=message)
         formContact.save()
-        return HttpResponse('Formulario enviado exitosamente')
+        messages.success(request, 'Formulario enviado exitosamente')
+        return redirect('index')
+    return redirect('index')
